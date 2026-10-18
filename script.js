@@ -98,6 +98,12 @@ function makeSceneShot(shot) {
     link.dataset.pswpWidth = image.naturalWidth;
     link.dataset.pswpHeight = image.naturalHeight;
   }, { once: true });
+  link.addEventListener("pointermove", (event) => {
+    if (event.pointerType !== "mouse") return;
+    const bounds = link.getBoundingClientRect();
+    link.style.setProperty("--pointer-x", `${event.clientX - bounds.left}px`);
+    link.style.setProperty("--pointer-y", `${event.clientY - bounds.top}px`);
+  });
   return link;
 }
 
@@ -156,6 +162,23 @@ function animateHero() {
     ease: "power2.out",
     delay: .15
   });
+}
+
+function enableSmoothScroll() {
+  if (!window.Lenis || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const lenis = new window.Lenis({
+    autoRaf: !window.gsap,
+    anchors: true,
+    smoothWheel: true,
+    syncTouch: false
+  });
+
+  if (window.gsap) {
+    window.gsap.ticker.add((time) => lenis.raf(time * 1000));
+    window.gsap.ticker.lagSmoothing(0);
+  }
+  window.siteLenis = lenis;
 }
 
 function enableGalleryTabs() {
@@ -266,4 +289,5 @@ renderMarquee();
 enableDeferredVideos();
 enablePhotoSwipe();
 animateHero();
+enableSmoothScroll();
 window.addEventListener("load", scheduleBelowFoldStory, { once: true });
