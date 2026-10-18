@@ -111,14 +111,24 @@ function makeSceneShot(shot) {
 
 function renderStory() {
   story.innerHTML = "";
-  const chunks = [];
-  for (let index = 0; index < shots.length; index += 6) {
-    chunks.push(shots.slice(index, index + 6));
-  }
+  const groups = [
+    { id: "art", title: "Art", kicker: "Art Photography", shots: shots.filter(([, label]) => label === "الآرتايه") },
+    { id: "wedding", title: "Wedding", kicker: "Wedding Photography", shots: shots.filter(([, label]) => /عروسين|فرح/.test(label)) },
+    { id: "portraits", title: "Portraits", kicker: "Portraits & Street", shots: shots.filter(([, label]) => label !== "الآرتايه" && !/عروسين|فرح/.test(label)) }
+  ];
 
-  chunks.forEach((chunk, index) => {
-    const title = sceneTitles[index % sceneTitles.length];
-    const kicker = sceneKickers[index % sceneKickers.length];
+  let sceneIndex = 0;
+  groups.forEach((group) => {
+    const heading = document.createElement("div");
+    heading.className = "gallery-section-title";
+    heading.id = `${group.id}-gallery`;
+    heading.innerHTML = `<p class="eyebrow dark">${group.kicker}</p><h2>${group.title}</h2>`;
+    story.appendChild(heading);
+
+    for (let index = 0; index < group.shots.length; index += 6) {
+    const chunk = group.shots.slice(index, index + 6);
+    const title = sceneTitles[sceneIndex % sceneTitles.length];
+    const kicker = sceneKickers[sceneIndex % sceneKickers.length];
     const scene = document.createElement("section");
     scene.className = "story-scene";
     scene.innerHTML = `<div class="scene-copy"><span>${kicker}</span><h3>${title}</h3></div><div class="scene-collage"></div>`;
@@ -126,8 +136,9 @@ function renderStory() {
     chunk.forEach((shot) => collage.appendChild(makeSceneShot(shot)));
     story.appendChild(scene);
 
-    const video = videos[index % videos.length];
-    if (index < videos.length) story.appendChild(makeVideoScene(video, index));
+    if (group.id !== "art" && sceneIndex < videos.length) story.appendChild(makeVideoScene(videos[sceneIndex], sceneIndex));
+    sceneIndex += 1;
+    }
   });
 }
 

@@ -318,6 +318,16 @@ h2 {
   gap: clamp(32px, 5vw, 78px);
 }
 
+.gallery-section-title {
+  padding: 28px 0 0;
+  border-top: 1px solid rgba(20,20,20,.16);
+}
+
+.gallery-section-title h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.6rem, 7vw, 6rem);
+}
+
 .story-scene {
   min-height: 88svh;
   display: grid;
@@ -375,9 +385,9 @@ h2 {
 
 .scene-shot:nth-child(1) { grid-column: 1 / 7; grid-row: 1 / 7; --tilt: -1.5deg; transition-delay: .04s; }
 .scene-shot:nth-child(2) { grid-column: 7 / 10; grid-row: 1 / 4; --tilt: 2deg; transition-delay: .12s; }
-.scene-shot:nth-child(3) { grid-column: 10 / 13; grid-row: 1 / 5; --tilt: -2deg; border-radius: 50%; transition-delay: .18s; }
+.scene-shot:nth-child(3) { grid-column: 10 / 13; grid-row: 1 / 5; --tilt: -2deg; transition-delay: .18s; }
 .scene-shot:nth-child(4) { grid-column: 7 / 13; grid-row: 5 / 9; --tilt: 1deg; transition-delay: .24s; }
-.scene-shot:nth-child(5) { grid-column: 1 / 4; grid-row: 7 / 9; --tilt: 2.2deg; border-radius: 999px; transition-delay: .3s; }
+.scene-shot:nth-child(5) { grid-column: 1 / 4; grid-row: 7 / 9; --tilt: 2.2deg; transition-delay: .3s; }
 .scene-shot:nth-child(6) { grid-column: 4 / 7; grid-row: 7 / 9; --tilt: -2.3deg; transition-delay: .36s; }
 
 .story-scene.is-visible .scene-shot {
@@ -801,7 +811,7 @@ h2 {
   }
   .scene-shot:nth-child(1) { grid-column: 1 / 7; grid-row: 1 / 4; }
   .scene-shot:nth-child(2) { grid-column: 1 / 4; grid-row: 4 / 6; }
-  .scene-shot:nth-child(3) { grid-column: 4 / 7; grid-row: 4 / 6; border-radius: 50%; }
+  .scene-shot:nth-child(3) { grid-column: 4 / 7; grid-row: 4 / 6; }
   .scene-shot:nth-child(4) { grid-column: 1 / 7; grid-row: 6 / 8; }
   .scene-shot:nth-child(5) { grid-column: 1 / 4; grid-row: 8 / 9; }
   .scene-shot:nth-child(6) { grid-column: 4 / 7; grid-row: 8 / 9; }
