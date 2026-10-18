@@ -23,6 +23,7 @@ main { overflow: hidden; }
 a { color: inherit; text-decoration: none; }
 img, video { max-width: 100%; display: block; }
 video::-webkit-media-controls-loading-panel { display: none !important; }
+video::-webkit-media-controls-overlay-play-button { display: none !important; }
 
 img[data-src] {
   background:
