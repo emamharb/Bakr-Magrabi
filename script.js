@@ -52,12 +52,6 @@ const shots = [
   ["شوارع بسيطه وهادئة/05-dl-a76ff8cf501f.jpg", "شوارع بسيطة وهادئة"]
 ];
 
-const videos = [
-  ["فيديوهات/المشكلة مش في الكاميرا…المشكلة إنك غالبًا قافل الـ Grid (الشبكة)الخط.mp4", "خطوط الشبكة", "videos-thumbnails/grid-lines.jpg", "portrait"],
-  ["فيديوهات/الليل بريء…٣ مشاكل في التصوير بالليل. اعرفهم علشان تصور في العيد بالليل بشكل أحسن. وقولي- إيه أك.mp4", "التصوير الليلي", "videos-thumbnails/night-tips.jpg", "portrait"],
-  ["فيديوهات/__هل أنوبيس من فعلها ؟! مستوحي من مسلسل true detective_.mp4", "حكاية أنوبيس", "videos-thumbnails/anubis-story.jpg", "landscape"]
-];
-
 const sceneTitles = [
   "لحظة",
   "ضوء",
@@ -271,53 +265,6 @@ function initCenteredVideoPlay() {
   });
 }
 
-function initFilmChooser() {
-  const list = document.querySelector("[data-film-choices]");
-  const frame = document.querySelector("[data-film-player]");
-  const player = frame?.querySelector("video");
-  if (!list || !player || !frame) return;
-  const source = player.querySelector("source");
-  const bringPlayerIntoView = () => {
-    if (window.matchMedia("(max-width: 820px)").matches) {
-      frame.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  };
-  videos.forEach(([src, label, poster, orientation], index) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = `film-choice${index === 0 ? " is-active" : ""}`;
-    button.classList.toggle("is-landscape", orientation === "landscape");
-    button.setAttribute("aria-pressed", String(index === 0));
-    button.innerHTML = `<span class="film-choice-poster"><img src="${poster}" alt="" loading="lazy"></span><span class="film-choice-title">${label}</span>`;
-    button.addEventListener("click", () => {
-      if (button.classList.contains("is-active")) {
-        if (source.dataset.src) loadDeferredVideo(player);
-        if (player.paused) player.play().catch(() => {});
-        else player.pause();
-        bringPlayerIntoView();
-        return;
-      }
-      list.querySelectorAll(".film-choice").forEach((item) => {
-        item.classList.remove("is-active");
-        item.setAttribute("aria-pressed", "false");
-      });
-      button.classList.add("is-active");
-      button.setAttribute("aria-pressed", "true");
-      player.pause();
-      player.setAttribute("aria-label", label);
-      player.poster = poster;
-      frame.classList.toggle("is-landscape", orientation === "landscape");
-      frame.classList.toggle("is-portrait", orientation === "portrait");
-      source.src = src;
-      source.removeAttribute("data-src");
-      player.load();
-      player.play().catch(() => {});
-      bringPlayerIntoView();
-    });
-    list.appendChild(button);
-  });
-}
-
 function renderMarquee() {
   const sample = [...shots.slice(0, 22), ...shots.slice(0, 22)];
   sample.forEach(([src, label], index) => {
@@ -358,7 +305,6 @@ window.addEventListener("scroll", () => {
 });
 
 renderMarquee();
-initFilmChooser();
 enableDeferredVideos();
 initCenteredVideoPlay();
 enablePhotoSwipe();
