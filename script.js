@@ -101,7 +101,7 @@ function makeSceneShot(shot) {
 }
 
 const artShots = [
-  ...shots.filter(([, label]) => label === "بورتريه" || label === "شوارع بسيطة وهادئة"),
+  ...shots.filter(([, label]) => label === "شوارع بسيطة وهادئة"),
   ...["01-dl-de4ece85403b.jpg", "02-dl-ef088c1f8ba2.jpg", "03-dl-62805e5df29b.jpg", "04-dl-89a807048c8d.jpg", "05-dl-ef796e49ab93.jpg"].map((name) => [`سيشن سينمائي لصديقي/${name}`, "سيشن سينمائي"])
 ];
 const weddingShots = shots.filter(([src, label]) => /عروسين|فرح|الآرتايه/.test(label) || (src.startsWith("سيشن/") && label === "سيشن"));
