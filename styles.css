@@ -1121,7 +1121,7 @@ h2 {
   .contact h2 { font-size: clamp(1.9rem, 9vw, 2.5rem); }
   .contact-main p:not(.eyebrow) { margin: 8px 0 16px; font-size: .92rem; }
   .contact-panel { grid-template-columns: 1fr; }
-  .site-footer { grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "mark motto top" "copyright copyright copyright"; gap: 8px 10px; padding: 16px 0 12px; }
+  .site-footer { width: calc(100% + 32px); margin-inline: -16px; padding: 16px 16px 12px; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "mark motto top" "copyright copyright copyright"; gap: 8px 10px; }
   .footer-mark { font-size: 1.15rem; }
   .site-footer p, .site-footer .back-top { font-size: .72rem; }
   .site-footer small { padding-top: 7px; font-size: .66rem; }
