@@ -83,27 +83,22 @@ const sceneKickers = [
 const story = document.querySelector("[data-story]");
 const galleryTabs = [...document.querySelectorAll("[data-gallery-tab]")];
 const marquee = document.querySelector("[data-marquee]");
-const lightbox = document.querySelector("[data-lightbox]");
-const lightboxImage = lightbox.querySelector("img");
-const lightboxText = lightbox.querySelector("p");
-const closeLightbox = lightbox.querySelector(".lightbox-close");
-
-function openLightbox(src, label) {
-  lightboxImage.src = src;
-  lightboxImage.alt = label;
-  lightboxText.textContent = "لقطة من أعمال Bakr Magrabi";
-  lightbox.hidden = false;
-}
 
 function makeSceneShot(shot) {
   const [src, label] = shot;
-  const button = document.createElement("button");
-  button.className = "gallery-card";
-  button.type = "button";
-  button.setAttribute("aria-label", `عرض صورة من ${label}`);
-  button.innerHTML = `<img src="${src}" alt="${label} - Bakr Magrabi" loading="lazy" decoding="async"><span>${label}</span>`;
-  button.addEventListener("click", () => openLightbox(src, label));
-  return button;
+  const link = document.createElement("a");
+  link.className = "gallery-card";
+  link.href = src;
+  link.dataset.pswpWidth = "1600";
+  link.dataset.pswpHeight = "1200";
+  link.setAttribute("aria-label", `عرض صورة كاملة من ${label}`);
+  link.innerHTML = `<img src="${src}" alt="${label} - Bakr Magrabi" loading="lazy" decoding="async"><span>${label}</span>`;
+  const image = link.querySelector("img");
+  image.addEventListener("load", () => {
+    link.dataset.pswpWidth = image.naturalWidth;
+    link.dataset.pswpHeight = image.naturalHeight;
+  }, { once: true });
+  return link;
 }
 
 const artShots = [
@@ -122,6 +117,44 @@ function renderGallery(category = "wedding") {
     tab.classList.toggle("is-active", active);
     tab.setAttribute("aria-selected", String(active));
     tab.tabIndex = active ? 0 : -1;
+  });
+  if (window.gsap && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    window.gsap.fromTo(story.children, { autoAlpha: 0, y: 18 }, {
+      autoAlpha: 1,
+      y: 0,
+      duration: .55,
+      stagger: .045,
+      ease: "power2.out",
+      clearProps: "all"
+    });
+  }
+}
+
+async function enablePhotoSwipe() {
+  try {
+    const { default: PhotoSwipeLightbox } = await import("https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.js");
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: "#gallery-grid",
+      children: "a.gallery-card",
+      pswpModule: () => import("https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.js"),
+      showHideAnimationType: "zoom",
+      bgOpacity: .96
+    });
+    lightbox.init();
+  } catch (error) {
+    console.warn("Photo viewer unavailable; image links remain available.", error);
+  }
+}
+
+function animateHero() {
+  if (!window.gsap || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  window.gsap.fromTo(".hero-content > *", { autoAlpha: 0, y: 24 }, {
+    autoAlpha: 1,
+    y: 0,
+    duration: .8,
+    stagger: .1,
+    ease: "power2.out",
+    delay: .15
   });
 }
 
@@ -224,18 +257,6 @@ function scheduleBelowFoldStory() {
   setTimeout(startBelowFoldStory, 450);
 }
 
-closeLightbox.addEventListener("click", () => {
-  lightbox.hidden = true;
-});
-
-lightbox.addEventListener("click", (event) => {
-  if (event.target === lightbox) lightbox.hidden = true;
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") lightbox.hidden = true;
-});
-
 const header = document.querySelector("[data-header]");
 window.addEventListener("scroll", () => {
   header.classList.toggle("scrolled", window.scrollY > 80);
@@ -243,4 +264,6 @@ window.addEventListener("scroll", () => {
 
 renderMarquee();
 enableDeferredVideos();
+enablePhotoSwipe();
+animateHero();
 window.addEventListener("load", scheduleBelowFoldStory, { once: true });
