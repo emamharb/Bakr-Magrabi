@@ -1065,6 +1065,8 @@ h2 {
 .gallery-endnote { margin: 28px 0 0; color: var(--muted); text-align: center; font-size: .86rem; }
 .films-section { padding: clamp(54px, 8vw, 110px) max(32px, calc((100% - 1360px) / 2)); background: #eae4da; }
 .films-layout { display: grid; grid-template-columns: minmax(0, 1fr); justify-items: center; }
+.films-title { margin: 0 0 28px; color: var(--wine); font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 800; text-align: center; }
+.films-title::after { display: block; width: 48px; height: 2px; margin: 12px auto 0; background: var(--gold); content: ""; }
 .film-player { position: relative; grid-column: 1; grid-row: 1; width: min(100%, 460px); aspect-ratio: 9 / 16; justify-self: center; overflow: hidden; background: #10100f; color: #fff; }
 .film-player.is-landscape { width: 100%; max-width: 960px; aspect-ratio: 16 / 9; }
 .film-player video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #10100f; }
