@@ -1117,10 +1117,14 @@ h2 {
   .video-caption .video-duration { grid-column: 2; grid-row: 1 / 4; align-self: center; writing-mode: vertical-rl; }
   .video-stage, .video-stage video { height: 60vw; min-height: 210px; max-height: 340px; }
   .work { width: calc(100% - 24px); }
-  .contact { padding: 42px 16px 0; }
+  .contact { width: 100%; min-width: 0; grid-template-columns: minmax(0, 1fr); padding: 42px 16px 0; }
+  .contact-main, .contact-panel, .contact-panel a { width: 100%; min-width: 0; }
   .contact h2 { font-size: clamp(1.9rem, 9vw, 2.5rem); }
   .contact-main p:not(.eyebrow) { margin: 8px 0 16px; font-size: .92rem; }
-  .contact-panel { grid-template-columns: 1fr; }
+  .contact-actions { display: flex; }
+  .contact-actions .contact-primary { width: fit-content; max-width: 100%; min-width: 0; white-space: normal; text-align: center; }
+  .contact-panel { grid-template-columns: minmax(0, 1fr); }
+  .contact-panel strong { font-size: .96rem; overflow-wrap: anywhere; }
   .site-footer { width: calc(100% + 32px); margin-inline: -16px; padding: 16px 16px 12px; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "mark motto top" "copyright copyright copyright"; gap: 8px 10px; }
   .footer-mark { font-size: 1.15rem; }
   .site-footer p, .site-footer .back-top { font-size: .72rem; }
