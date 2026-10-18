@@ -394,10 +394,12 @@ h2 {
 
 .gallery-tab {
   flex: 1;
-  display: grid;
-  gap: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 58px;
   padding: 8px 16px;
+  line-height: 1;
   border: 0;
   background: transparent;
   color: var(--muted);
