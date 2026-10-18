@@ -1139,21 +1139,23 @@ h2 {
   .gallery-card, .gallery-card img, .gallery-card::before { transition: none; }
 }
 
-/* The photographer feature is a clean portrait video card. */
+/* Let the portrait video fill its own vertical space. */
 .intro-video {
   display: block;
-  min-height: 0;
-  padding: 0;
-}
-.video-stage {
-  width: min(100%, 460px);
-  aspect-ratio: 9 / 16;
+  width: min(100%, 380px);
   min-height: 0;
   margin-inline: auto;
+  padding: 0;
+  overflow: hidden;
+  background: #111;
 }
-.video-stage video {
+.intro-video video {
+  display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  max-height: none;
   min-height: 0;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
 }
