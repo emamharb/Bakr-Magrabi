@@ -55,8 +55,7 @@ const shots = [
 const videos = [
   ["فيديوهات/المشكلة مش في الكاميرا…المشكلة إنك غالبًا قافل الـ Grid (الشبكة)الخط.mp4", "خطوط الشبكة", "videos-thumbnails/grid-lines.jpg", "portrait"],
   ["فيديوهات/الليل بريء…٣ مشاكل في التصوير بالليل. اعرفهم علشان تصور في العيد بالليل بشكل أحسن. وقولي- إيه أك.mp4", "التصوير الليلي", "videos-thumbnails/night-tips.jpg", "portrait"],
-  ["فيديوهات/__هل أنوبيس من فعلها ؟! مستوحي من مسلسل true detective_.mp4", "حكاية أنوبيس", "videos-thumbnails/anubis-story.jpg", "landscape"],
-  ["فيديوهات/المشكلة مش في الكاميرا ، الجزء الاول.mp4", "المشكلة مش في الكاميرا", "videos-thumbnails/camera-problem.jpg", "portrait"]
+  ["فيديوهات/__هل أنوبيس من فعلها ؟! مستوحي من مسلسل true detective_.mp4", "حكاية أنوبيس", "videos-thumbnails/anubis-story.jpg", "landscape"]
 ];
 
 const sceneTitles = [
