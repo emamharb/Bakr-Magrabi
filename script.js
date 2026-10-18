@@ -92,7 +92,7 @@ function makeSceneShot(shot) {
   link.dataset.pswpWidth = "1600";
   link.dataset.pswpHeight = "1200";
   link.setAttribute("aria-label", `عرض صورة كاملة من ${label}`);
-  link.innerHTML = `<img src="${src}" alt="${label} - Bakr Magrabi" loading="lazy" decoding="async"><span>${label}</span>`;
+  link.innerHTML = `<img src="${src}" alt="${label} - Bakr Magrabi" loading="lazy" decoding="async">`;
   const image = link.querySelector("img");
   image.addEventListener("load", () => {
     link.dataset.pswpWidth = image.naturalWidth;
@@ -246,6 +246,22 @@ function enableDeferredVideos() {
   });
 }
 
+function initCenteredVideoPlay() {
+  document.querySelectorAll("[data-lazy-video]").forEach((frame) => {
+    const video = frame.querySelector("video");
+    const button = frame.querySelector("[data-video-play]");
+    if (!video || !button) return;
+    const start = () => {
+      loadDeferredVideo(video);
+      video.play().catch(() => button.focus());
+    };
+    button.addEventListener("click", start);
+    video.addEventListener("play", () => frame.classList.add("is-playing"));
+    video.addEventListener("pause", () => frame.classList.remove("is-playing"));
+    video.addEventListener("ended", () => frame.classList.remove("is-playing"));
+  });
+}
+
 function initFilmChooser() {
   const list = document.querySelector("[data-film-choices]");
   const player = document.querySelector("[data-film-player] video");
@@ -319,6 +335,7 @@ window.addEventListener("scroll", () => {
 renderMarquee();
 initFilmChooser();
 enableDeferredVideos();
+initCenteredVideoPlay();
 enablePhotoSwipe();
 animateHero();
 enableSmoothScroll();

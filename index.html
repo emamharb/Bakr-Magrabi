@@ -73,10 +73,13 @@
           <a href="https://www.instagram.com/bakrmagrabi" target="_blank" rel="noreferrer">Instagram</a>
         </div>
       </div>
-      <div class="intro-video">
-        <video controls playsinline preload="metadata" poster="videos-thumbnails/camera-problem.jpg" aria-label="فيديو عن المصور بكر المغربي">
-          <source src="فيديوهات/المشكلة مش في الكاميرا ، الجزء الاول.mp4" type="video/mp4">
+      <div class="intro-video" data-lazy-video>
+        <video controls playsinline preload="none" poster="videos-thumbnails/camera-problem.jpg" aria-label="فيديو عن المصور بكر المغربي">
+          <source data-src="فيديوهات/المشكلة مش في الكاميرا ، الجزء الاول.mp4" type="video/mp4">
         </video>
+        <button class="video-play-button" type="button" data-video-play aria-label="تشغيل الفيديو">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10-6.5-10-6.5Z" /></svg>
+        </button>
       </div>
     </section>
 
