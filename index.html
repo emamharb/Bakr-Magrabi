@@ -96,16 +96,16 @@
 
     <section class="films-section" id="films" aria-labelledby="films-title">
       <div class="films-heading">
-        <p class="eyebrow dark">الصورة المتحركة</p>
-        <h2 id="films-title">حكايات من<br><em>خلف الكادر.</em></h2>
-        <p>أفلام قصيرة من جلسات التصوير، والحياة في قنا.</p>
+        <h2 id="films-title">فيديوهات</h2>
       </div>
       <div class="films-layout">
-        <div class="film-player" data-film-player>
-          <video controls preload="none" poster="videos-thumbnails/behind-scenes.jpg" aria-label="فيديو خلف الكادر">
+        <div class="film-player is-portrait" data-film-player data-lazy-video>
+          <video controls playsinline preload="none" poster="videos-thumbnails/behind-scenes.jpg" aria-label="كواليس التصوير">
             <source data-src="فيديوهات/كواليس.mp4" type="video/mp4">
           </video>
-          <div class="film-player-caption"><span>يعرض الآن</span><h3 data-film-title>خلف الكادر</h3></div>
+          <button class="video-play-button" type="button" data-video-play aria-label="تشغيل الفيديو">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10-6.5-10-6.5Z" /></svg>
+          </button>
         </div>
         <div class="film-choices" data-film-choices aria-label="اختيار فيلم"></div>
       </div>

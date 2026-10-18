@@ -53,10 +53,10 @@ const shots = [
 ];
 
 const videos = [
-  ["فيديوهات/كواليس.mp4", "خلف الكادر", "videos-thumbnails/behind-scenes.jpg"],
-  ["فيديوهات/فيديو بمؤثر الثلج.mp4", "الجو يزداد بردًا…", "videos-thumbnails/snow-effect.jpg"],
-  ["فيديوهات/٣ مشاكل في التصوير بالليل..mp4", "حين يغيب الضوء", "videos-thumbnails/night-shooting.jpg"],
-  ["فيديوهات/المرماح أحد أبرز الموروثات الشعبية في صعيد مصر، يرتبط بالخيل والفروسية ويُقام في عدد من المناسبات والموالد..mp4", "فروسية الجنوب", "videos-thumbnails/horse-heritage.jpg"]
+  ["فيديوهات/كواليس.mp4", "كواليس التصوير", "videos-thumbnails/behind-scenes.jpg", "portrait"],
+  ["فيديوهات/فيديو بمؤثر الثلج.mp4", "تأثير الثلج", "videos-thumbnails/snow-effect.jpg", "portrait"],
+  ["فيديوهات/٣ مشاكل في التصوير بالليل..mp4", "التصوير الليلي", "videos-thumbnails/night-shooting.jpg", "portrait"],
+  ["فيديوهات/المرماح أحد أبرز الموروثات الشعبية في صعيد مصر، يرتبط بالخيل والفروسية ويُقام في عدد من المناسبات والموالد..mp4", "المرماح", "videos-thumbnails/horse-heritage.jpg", "landscape"]
 ];
 
 const sceneTitles = [
@@ -274,26 +274,35 @@ function initCenteredVideoPlay() {
 
 function initFilmChooser() {
   const list = document.querySelector("[data-film-choices]");
-  const player = document.querySelector("[data-film-player] video");
-  const title = document.querySelector("[data-film-title]");
-  if (!list || !player || !title) return;
+  const frame = document.querySelector("[data-film-player]");
+  const player = frame?.querySelector("video");
+  if (!list || !player || !frame) return;
   const source = player.querySelector("source");
-  videos.forEach(([src, label, poster], index) => {
+  videos.forEach(([src, label, poster, orientation], index) => {
     const button = document.createElement("button");
     button.type = "button";
     button.className = `film-choice${index === 0 ? " is-active" : ""}`;
+    button.classList.toggle("is-landscape", orientation === "landscape");
     button.setAttribute("aria-pressed", String(index === 0));
-    button.innerHTML = `<img src="${poster}" alt="" loading="lazy"><span>${label}</span><b aria-hidden="true">${String(index + 1).padStart(2, "0")}</b>`;
+    button.innerHTML = `<img src="${poster}" alt="" loading="lazy"><span>${label}</span>`;
     button.addEventListener("click", () => {
-      if (button.classList.contains("is-active")) return;
+      if (button.classList.contains("is-active")) {
+        if (source.dataset.src) loadDeferredVideo(player);
+        if (player.paused) player.play().catch(() => {});
+        else player.pause();
+        return;
+      }
       list.querySelectorAll(".film-choice").forEach((item) => {
         item.classList.remove("is-active");
         item.setAttribute("aria-pressed", "false");
       });
       button.classList.add("is-active");
       button.setAttribute("aria-pressed", "true");
-      title.textContent = label;
+      player.pause();
+      player.setAttribute("aria-label", label);
       player.poster = poster;
+      frame.classList.toggle("is-landscape", orientation === "landscape");
+      frame.classList.toggle("is-portrait", orientation === "portrait");
       source.src = src;
       source.removeAttribute("data-src");
       player.load();
