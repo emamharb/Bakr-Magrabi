@@ -1,4 +1,4 @@
-const weddingPhotos = [
+const shots = [
   ["سيشن العروسين/02-dl-bf57a06ce420.jpg", "سيشن العروسين"],
   ["سيشن العروسين/03-dl-e092ab720128.jpg", "سيشن العروسين"],
   ["سيشن العروسين/04-dl-916a28359525.jpg", "سيشن العروسين"],
@@ -14,21 +14,21 @@ const weddingPhotos = [
   ["سيشن عروسين فى الخارج/04-dl-889b04f958bf.jpg", "عروسين في الخارج"],
   ["سيشن عروسين فى الخارج/05-dl-6df69d11cf31.jpg", "عروسين في الخارج"],
   ["سيشن عروسين فى الخارج/06-dl-b3510bd797c8.jpg", "عروسين في الخارج"],
-  ["سيشن فرح 3/02-dl-43b8be4c677f.jpg", "سيشن فرح"],
-  ["سيشن فرح 3/03-dl-b0c9f4267284.jpg", "سيشن فرح"],
-  ["سيشن فرح 3/04-dl-a8ca38077721.jpg", "سيشن فرح"],
-  ["سيشن فرح 3/05-dl-0890f3932a0f.jpg", "سيشن فرح"],
-  ["سيشن فرح 3/06-dl-7769fb840cb9.jpg", "سيشن فرح"],
+  ["سيشن فرح 3/02-dl-43b8be4c677f.jpg", "سيشن فرح 3"],
+  ["سيشن فرح 3/03-dl-b0c9f4267284.jpg", "سيشن فرح 3"],
+  ["سيشن فرح 3/04-dl-a8ca38077721.jpg", "سيشن فرح 3"],
+  ["سيشن فرح 3/05-dl-0890f3932a0f.jpg", "سيشن فرح 3"],
+  ["سيشن فرح 3/06-dl-7769fb840cb9.jpg", "سيشن فرح 3"],
   ["سيشن فرح/01-dl-cff1fbbcf632.jpg", "سيشن فرح"],
   ["سيشن فرح/02-dl-af2277e41adb.jpg", "سيشن فرح"],
   ["سيشن فرح/03-dl-545d0cae4ea8.jpg", "سيشن فرح"],
   ["سيشن فرح/04-dl-f1635c1a21d6.jpg", "سيشن فرح"],
   ["سيشن فرح/05-dl-eb6ad1bbba61.jpg", "سيشن فرح"],
-  ["فرح 2/01-dl-472d08e379b3.jpg", "فرح"],
-  ["فرح 2/02-dl-652a354b746a.jpg", "فرح"],
-  ["فرح 2/03-dl-09bcbd768c54.jpg", "فرح"],
-  ["فرح 2/04-dl-c46d50a91caf.jpg", "فرح"],
-  ["فرح 2/05-dl-aa9687930cd9.jpg", "فرح"],
+  ["فرح 2/01-dl-472d08e379b3.jpg", "فرح 2"],
+  ["فرح 2/02-dl-652a354b746a.jpg", "فرح 2"],
+  ["فرح 2/03-dl-09bcbd768c54.jpg", "فرح 2"],
+  ["فرح 2/04-dl-c46d50a91caf.jpg", "فرح 2"],
+  ["فرح 2/05-dl-aa9687930cd9.jpg", "فرح 2"],
   ["فرح/01-dl-c1905c07fef0.jpg", "فرح"],
   ["فرح/02-dl-42c55782ad79.jpg", "فرح"],
   ["فرح/03-dl-a69a34628872.jpg", "فرح"],
@@ -43,45 +43,56 @@ const weddingPhotos = [
   ["سيشن/03-dl-b0de3fb0b58d.jpg", "سيشن"],
   ["سيشن/04-dl-1c64612353e1.jpg", "سيشن"],
   ["سيشن/05-dl-e69b1335ff86.jpg", "سيشن"],
-  ["سيشن/06-dl-35f295d9b70c.jpg", "سيشن"]
-];
-
-const artPhotos = [
+  ["سيشن/06-dl-35f295d9b70c.jpg", "سيشن"],
   ["سيشن/صورتى.jpg", "بورتريه"],
-  ["شوارع بسيطه وهادئة/01-dl-a1d386b096d3.jpg", "من شوارع قنا"],
-  ["شوارع بسيطه وهادئة/02-dl-eab15f6cd5b3.jpg", "من شوارع قنا"],
-  ["شوارع بسيطه وهادئة/03-dl-2430d75b9da7.jpg", "من شوارع قنا"],
-  ["شوارع بسيطه وهادئة/04-dl-f41b15ceda97.jpg", "من شوارع قنا"],
-  ["شوارع بسيطه وهادئة/05-dl-a76ff8cf501f.jpg", "من شوارع قنا"],
-  ["سيشن سينمائي لصديقي/01-dl-de4ece85403b.jpg", "مشاهد سينمائية"],
-  ["سيشن سينمائي لصديقي/02-dl-ef088c1f8ba2.jpg", "مشاهد سينمائية"],
-  ["سيشن سينمائي لصديقي/03-dl-62805e5df29b.jpg", "مشاهد سينمائية"],
-  ["سيشن سينمائي لصديقي/04-dl-89a807048c8d.jpg", "مشاهد سينمائية"],
-  ["سيشن سينمائي لصديقي/05-dl-ef796e49ab93.jpg", "مشاهد سينمائية"]
+  ["شوارع بسيطه وهادئة/01-dl-a1d386b096d3.jpg", "شوارع بسيطة وهادئة"],
+  ["شوارع بسيطه وهادئة/02-dl-eab15f6cd5b3.jpg", "شوارع بسيطة وهادئة"],
+  ["شوارع بسيطه وهادئة/03-dl-2430d75b9da7.jpg", "شوارع بسيطة وهادئة"],
+  ["شوارع بسيطه وهادئة/04-dl-f41b15ceda97.jpg", "شوارع بسيطة وهادئة"],
+  ["شوارع بسيطه وهادئة/05-dl-a76ff8cf501f.jpg", "شوارع بسيطة وهادئة"]
 ];
 
-const films = [
-  ["فيديوهات/كواليس.mp4", "خلف الكادر", "videos-thumbnails/behind-scenes.jpg", "حكاية صغيرة عن اللي بيحصل قبل ما الصورة تتاخد."],
-  ["فيديوهات/المشكلة مش في الكاميرا ، الجزء الاول.mp4", "المشكلة مش في الكاميرا", "videos-thumbnails/camera-problem.jpg", "كلام عن العين اللي بتشوف، قبل الكاميرا اللي بتصوّر."],
-  ["فيديوهات/فيديو بمؤثر الثلج.mp4", "الجو يزداد بردًا…", "videos-thumbnails/snow-effect.jpg", "تجربة بصرية ومشهد خارج المألوف."],
-  ["فيديوهات/٣ مشاكل في التصوير بالليل..mp4", "حين يغيب الضوء", "videos-thumbnails/night-shooting.jpg", "محاولات وحلول للتصوير في الضوء الصعب."],
-  ["فيديوهات/المرماح أحد أبرز الموروثات الشعبية في صعيد مصر، يرتبط بالخيل والفروسية ويُقام في عدد من المناسبات والموالد..mp4", "فروسية الجنوب", "videos-thumbnails/horse-heritage.jpg", "مشهد من الموروث الشعبي في جنوب مصر."]
+const videos = [
+  ["فيديوهات/كواليس.mp4", "خلف الكادر", "videos-thumbnails/behind-scenes.jpg"],
+  ["فيديوهات/فيديو بمؤثر الثلج.mp4", "الجو يزداد بردًا…", "videos-thumbnails/snow-effect.jpg"],
+  ["فيديوهات/٣ مشاكل في التصوير بالليل..mp4", "حين يغيب الضوء", "videos-thumbnails/night-shooting.jpg"],
+  ["فيديوهات/المرماح أحد أبرز الموروثات الشعبية في صعيد مصر، يرتبط بالخيل والفروسية ويُقام في عدد من المناسبات والموالد..mp4", "فروسية الجنوب", "videos-thumbnails/horse-heritage.jpg"]
 ];
 
-const gallery = document.querySelector("[data-gallery]");
+const sceneTitles = [
+  "لحظة",
+  "ضوء",
+  "حضور",
+  "تفاصيل",
+  "إيقاع",
+  "كادر",
+  "ملامح",
+  "حكاية",
+  "قرب",
+  "ذاكرة",
+  "ختام"
+];
+
+const sceneKickers = [
+  "Portfolio",
+  "Visuals",
+  "Frames",
+  "Moments"
+];
+
+const story = document.querySelector("[data-story]");
 const galleryTabs = [...document.querySelectorAll("[data-gallery-tab]")];
-const galleryCount = document.querySelector("[data-gallery-count]");
-const filmFeature = document.querySelector("[data-film-feature]");
-const filmList = document.querySelector("[data-film-list]");
+const marquee = document.querySelector("[data-marquee]");
 
-function makeGalleryItem([src, label], index) {
+function makeSceneShot(shot) {
+  const [src, label] = shot;
   const link = document.createElement("a");
   link.className = "gallery-card";
   link.href = src;
   link.dataset.pswpWidth = "1600";
   link.dataset.pswpHeight = "1200";
-  link.setAttribute("aria-label", `عرض صورة كاملة: ${label}`);
-  link.innerHTML = `<img src="${src}" alt="${label} — تصوير بكر المغربي" loading="${index < 4 ? "eager" : "lazy"}" decoding="async"><span>${label}</span>`;
+  link.setAttribute("aria-label", `عرض صورة كاملة من ${label}`);
+  link.innerHTML = `<img src="${src}" alt="${label} - Bakr Magrabi" loading="lazy" decoding="async"><span>${label}</span>`;
   const image = link.querySelector("img");
   image.addEventListener("load", () => {
     link.dataset.pswpWidth = image.naturalWidth;
@@ -89,71 +100,43 @@ function makeGalleryItem([src, label], index) {
   }, { once: true });
   link.addEventListener("pointermove", (event) => {
     if (event.pointerType !== "mouse") return;
-    const rect = link.getBoundingClientRect();
-    link.style.setProperty("--pointer-x", `${event.clientX - rect.left}px`);
-    link.style.setProperty("--pointer-y", `${event.clientY - rect.top}px`);
+    const bounds = link.getBoundingClientRect();
+    link.style.setProperty("--pointer-x", `${event.clientX - bounds.left}px`);
+    link.style.setProperty("--pointer-y", `${event.clientY - bounds.top}px`);
   });
   return link;
 }
 
+const artShots = [
+  ...shots.filter(([, label]) => label === "بورتريه" || label === "شوارع بسيطة وهادئة"),
+  ...["01-dl-de4ece85403b.jpg", "02-dl-ef088c1f8ba2.jpg", "03-dl-62805e5df29b.jpg", "04-dl-89a807048c8d.jpg", "05-dl-ef796e49ab93.jpg"].map((name) => [`سيشن سينمائي لصديقي/${name}`, "سيشن سينمائي"])
+];
+const weddingShots = shots.filter(([src, label]) => /عروسين|فرح|الآرتايه/.test(label) || (src.startsWith("سيشن/") && label === "سيشن"));
+
 function renderGallery(category = "wedding") {
-  const items = category === "wedding" ? weddingPhotos : artPhotos;
-  gallery.replaceChildren(...items.map(makeGalleryItem));
-  gallery.setAttribute("aria-labelledby", `${category}-tab`);
-  galleryCount.textContent = `${String(items.length).padStart(2, "0")} صورة`;
+  const isWedding = category === "wedding";
+  const selected = isWedding ? weddingShots : artShots;
+  story.replaceChildren(...selected.map(makeSceneShot));
+  story.setAttribute("aria-labelledby", `${category}-tab`);
   galleryTabs.forEach((tab) => {
     const active = tab.dataset.galleryTab === category;
     tab.classList.toggle("is-active", active);
     tab.setAttribute("aria-selected", String(active));
     tab.tabIndex = active ? 0 : -1;
   });
-
   if (window.gsap && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    window.gsap.fromTo(gallery.children, { autoAlpha: 0, y: 14 }, {
-      autoAlpha: 1, y: 0, duration: .46, stagger: .025, ease: "power2.out", clearProps: "all"
+    window.gsap.fromTo(story.children, { autoAlpha: 0, y: 18 }, {
+      autoAlpha: 1,
+      y: 0,
+      duration: .55,
+      stagger: .045,
+      ease: "power2.out",
+      clearProps: "all"
     });
   }
 }
 
-function initGalleryTabs() {
-  galleryTabs.forEach((tab, index) => {
-    tab.addEventListener("click", () => renderGallery(tab.dataset.galleryTab));
-    tab.addEventListener("keydown", (event) => {
-      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
-      event.preventDefault();
-      const next = event.key === "Home" ? 0 : event.key === "End" ? galleryTabs.length - 1 : (index + (event.key === "ArrowRight" ? 1 : -1) + galleryTabs.length) % galleryTabs.length;
-      galleryTabs[next].focus();
-      renderGallery(galleryTabs[next].dataset.galleryTab);
-    });
-  });
-  renderGallery("wedding");
-}
-
-function renderFeatureFilm(film, index = 0) {
-  const [src, title, poster, description] = film;
-  filmFeature.innerHTML = `<div class="film-feature-media"><video controls preload="metadata" poster="${poster}" playsinline><source src="${src}" type="video/mp4"></video></div><div class="film-feature-copy"><div class="film-feature-index"><span>${String(index + 1).padStart(2, "0")}</span><i></i><span>SHORT FILM</span></div><p class="overline">من دفتر الحكايات</p><h3>${title}</h3><p>${description}</p></div>`;
-  filmList.querySelectorAll(".film-choice").forEach((item) => item.classList.toggle("is-active", Number(item.dataset.filmIndex) === index));
-}
-
-function initFilms() {
-  films.forEach(([src, title, poster], index) => {
-    if (index === 0) return;
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "film-choice";
-    button.dataset.filmIndex = String(index);
-    button.innerHTML = `<img src="${poster}" alt="" loading="lazy" decoding="async"><span>${title}</span><b aria-hidden="true">↗</b>`;
-    button.addEventListener("click", () => {
-      renderFeatureFilm(films[index], index);
-      const video = filmFeature.querySelector("video");
-      video.play().catch(() => {});
-    });
-    filmList.appendChild(button);
-  });
-  renderFeatureFilm(films[0]);
-}
-
-async function initPhotoSwipe() {
+async function enablePhotoSwipe() {
   try {
     const { default: PhotoSwipeLightbox } = await import("https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.js");
     const lightbox = new PhotoSwipeLightbox({
@@ -161,33 +144,36 @@ async function initPhotoSwipe() {
       children: "a.gallery-card",
       pswpModule: () => import("https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.js"),
       showHideAnimationType: "zoom",
-      bgOpacity: .97
+      bgOpacity: .96
     });
     lightbox.init();
   } catch (error) {
-    console.warn("PhotoSwipe is unavailable; gallery images remain linked directly.", error);
+    console.warn("Photo viewer unavailable; image links remain available.", error);
   }
 }
 
-function initMobileMenu() {
-  const toggle = document.querySelector(".menu-toggle");
-  const nav = document.querySelector(".main-nav");
-  const setOpen = (open) => {
-    toggle.setAttribute("aria-expanded", String(open));
-    toggle.setAttribute("aria-label", open ? "إغلاق القائمة" : "فتح القائمة");
-    nav.classList.toggle("is-open", open);
-    document.body.classList.toggle("menu-open", open);
-  };
-  toggle.addEventListener("click", () => setOpen(toggle.getAttribute("aria-expanded") !== "true"));
-  nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setOpen(false)));
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") setOpen(false);
+function animateHero() {
+  if (!window.gsap || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  window.gsap.fromTo(".hero-content > *", { autoAlpha: 0, y: 24 }, {
+    autoAlpha: 1,
+    y: 0,
+    duration: .8,
+    stagger: .1,
+    ease: "power2.out",
+    delay: .15
   });
 }
 
-function initSmoothScroll() {
+function enableSmoothScroll() {
   if (!window.Lenis || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const lenis = new window.Lenis({ autoRaf: !window.gsap, anchors: true, smoothWheel: true, syncTouch: false });
+
+  const lenis = new window.Lenis({
+    autoRaf: !window.gsap,
+    anchors: true,
+    smoothWheel: true,
+    syncTouch: false
+  });
+
   if (window.gsap) {
     window.gsap.ticker.add((time) => lenis.raf(time * 1000));
     window.gsap.ticker.lagSmoothing(0);
@@ -195,34 +181,113 @@ function initSmoothScroll() {
   window.siteLenis = lenis;
 }
 
-function initPageMotion() {
-  if (!window.gsap || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  window.gsap.fromTo(".hero-kicker, .hero h1, .hero-bottomline", { autoAlpha: 0, y: 22 }, {
-    autoAlpha: 1, y: 0, duration: .9, stagger: .13, ease: "power3.out", delay: .18
+function enableGalleryTabs() {
+  galleryTabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => renderGallery(tab.dataset.galleryTab));
+    tab.addEventListener("keydown", (event) => {
+      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+      event.preventDefault();
+      const nextIndex = event.key === "Home" ? 0 : event.key === "End" ? galleryTabs.length - 1 : (index + (event.key === "ArrowRight" ? 1 : -1) + galleryTabs.length) % galleryTabs.length;
+      galleryTabs[nextIndex].focus();
+      renderGallery(galleryTabs[nextIndex].dataset.galleryTab);
+    });
   });
+  renderGallery("wedding");
+}
+
+function makeVideoScene(video, index) {
+  const [src, label, poster] = video;
+  const scene = document.createElement("section");
+  scene.className = "video-scene";
+  scene.innerHTML = `<div class="video-info"><span>Video</span><h3>${label}</h3></div><div class="video-frame"><video controls preload="none" poster="${poster}"><source data-src="${src}" type="video/mp4"></video></div>`;
+  return scene;
+}
+
+function watchStoryMotion() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      window.gsap.fromTo(entry.target, { autoAlpha: 0, y: 20 }, {
-        autoAlpha: 1, y: 0, duration: .8, ease: "power2.out", clearProps: "all"
-      });
-      observer.unobserve(entry.target);
+      entry.target.classList.toggle("is-visible", entry.isIntersecting);
     });
-  }, { threshold: .12 });
-  document.querySelectorAll(".section-intro, .interlude-copy, .film-feature, .about-copy, .contact-main").forEach((item) => observer.observe(item));
+  }, { threshold: 0.25 });
+
+  document.querySelectorAll(".story-scene, .video-scene").forEach((scene) => {
+    observer.observe(scene);
+  });
 }
 
-function initHeader() {
-  const header = document.querySelector("[data-header]");
-  const update = () => header.classList.toggle("is-scrolled", window.scrollY > 42);
-  update();
-  window.addEventListener("scroll", update, { passive: true });
+function lazyLoadMedia() {
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const image = entry.target;
+      image.src = image.dataset.src;
+      image.addEventListener("load", () => image.classList.add("is-loaded"), { once: true });
+      image.removeAttribute("data-src");
+      observer.unobserve(image);
+    });
+  }, { rootMargin: "650px 0px" });
+
+  document.querySelectorAll("img[data-src]").forEach((image) => imageObserver.observe(image));
 }
 
-initGalleryTabs();
-initFilms();
-initPhotoSwipe();
-initMobileMenu();
-initSmoothScroll();
-initPageMotion();
-initHeader();
+function loadDeferredVideo(video) {
+  const source = video.querySelector("source[data-src]");
+  if (!source) return;
+  source.src = source.dataset.src;
+  source.removeAttribute("data-src");
+  video.load();
+}
+
+function enableDeferredVideos() {
+  document.querySelectorAll("video source[data-src]").forEach((source) => {
+    const video = source.closest("video");
+    video.addEventListener("pointerdown", () => loadDeferredVideo(video), { once: true });
+    video.addEventListener("focus", () => loadDeferredVideo(video), { once: true });
+  });
+}
+
+function renderMarquee() {
+  const sample = [...shots.slice(0, 22), ...shots.slice(0, 22)];
+  sample.forEach(([src, label], index) => {
+    const image = document.createElement("img");
+    image.alt = "لقطة من أعمال Bakr Magrabi";
+    image.decoding = "async";
+    if (index < 8) {
+      image.src = src;
+      image.loading = "eager";
+      image.fetchPriority = "high";
+    } else {
+      image.dataset.src = src;
+      image.loading = "lazy";
+    }
+    marquee.appendChild(image);
+  });
+}
+
+function startBelowFoldStory() {
+  enableGalleryTabs();
+  enableDeferredVideos();
+  watchStoryMotion();
+  lazyLoadMedia();
+}
+
+function scheduleBelowFoldStory() {
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(startBelowFoldStory, { timeout: 1200 });
+    return;
+  }
+
+  setTimeout(startBelowFoldStory, 450);
+}
+
+const header = document.querySelector("[data-header]");
+window.addEventListener("scroll", () => {
+  header.classList.toggle("scrolled", window.scrollY > 80);
+});
+
+renderMarquee();
+enableDeferredVideos();
+enablePhotoSwipe();
+animateHero();
+enableSmoothScroll();
+window.addEventListener("load", scheduleBelowFoldStory, { once: true });
