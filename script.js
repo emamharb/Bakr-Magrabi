@@ -113,8 +113,7 @@ function renderStory() {
   story.innerHTML = "";
   const groups = [
     { id: "art", title: "Art", kicker: "Art Photography", shots: shots.filter(([, label]) => label === "الآرتايه") },
-    { id: "wedding", title: "Wedding", kicker: "Wedding Photography", shots: shots.filter(([, label]) => /عروسين|فرح/.test(label)) },
-    { id: "portraits", title: "Portraits", kicker: "Portraits & Street", shots: shots.filter(([, label]) => label !== "الآرتايه" && !/عروسين|فرح/.test(label)) }
+    { id: "wedding", title: "Wedding", kicker: "Wedding Photography", shots: shots.filter(([, label]) => label !== "الآرتايه") }
   ];
 
   let sceneIndex = 0;
