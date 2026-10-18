@@ -1058,6 +1058,7 @@ h2 {
 }
 .section-head { padding-top: 0; margin-bottom: 30px; }
 .section-head h2 { font-size: clamp(2.5rem, 6.5vw, 6.4rem); }
+.section-head h2.section-label { font-family: "Cairo", sans-serif; font-size: inherit; }
 .gallery-tabs { border-radius: 999px; overflow: hidden; }
 .gallery-tab { border-radius: 999px; transition: background .2s ease, color .2s ease; }
 .gallery-grid { column-gap: 18px; }

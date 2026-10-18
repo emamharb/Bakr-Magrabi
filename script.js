@@ -84,8 +84,8 @@ function makeSceneShot(shot) {
   link.href = src;
   link.dataset.pswpWidth = "1600";
   link.dataset.pswpHeight = "1200";
-  link.setAttribute("aria-label", `عرض صورة كاملة من ${label}`);
-  link.innerHTML = `<img src="${src}" alt="${label} - Bakr Magrabi" loading="lazy" decoding="async">`;
+  link.setAttribute("aria-label", `عرض صورة كاملة: ${label}`);
+  link.innerHTML = `<img src="${src}" alt="تصوير ${label} - بكر مغربي" loading="lazy" decoding="async">`;
   const image = link.querySelector("img");
   image.addEventListener("load", () => {
     link.dataset.pswpWidth = image.naturalWidth;
