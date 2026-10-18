@@ -222,7 +222,7 @@ h2 {
 }
 
 .work {
-  width: min(1600px, calc(100% - 48px));
+  width: min(1680px, calc(100% - 56px));
 }
 
 .contact {
@@ -370,8 +370,8 @@ h2 {
 }
 
 .gallery-grid {
-  columns: 5 260px;
-  column-gap: clamp(12px, 1.35vw, 22px);
+  columns: 3 340px;
+  column-gap: clamp(16px, 1.6vw, 26px);
   padding-bottom: 18px;
 }
 
@@ -835,7 +835,7 @@ h2 {
     transform: none;
   }
   .work { width: calc(100% - 32px); }
-  .gallery-grid { columns: 4 190px; }
+  .gallery-grid { columns: 3 220px; }
   .story-scene:nth-child(even) .scene-copy { order: 0; }
   .scene-copy {
     position: relative;
