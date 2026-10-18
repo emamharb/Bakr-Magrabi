@@ -1120,7 +1120,7 @@ h2 {
   .contact { width: 100%; min-width: 0; grid-template-columns: minmax(0, 1fr); padding: 42px 16px 0; }
   .contact-main, .contact-panel, .contact-panel a { width: 100%; min-width: 0; }
   .contact h2 { font-size: clamp(1.9rem, 9vw, 2.5rem); }
-  .contact-main p:not(.eyebrow) { margin: 8px 0 16px; font-size: .92rem; }
+  .contact-main p:not(.eyebrow) { max-width: none; margin: 8px 0 16px; font-size: clamp(.68rem, 3.25vw, .92rem); line-height: 1.5; white-space: nowrap; }
   .contact-actions { display: flex; }
   .contact-actions .contact-primary { width: fit-content; max-width: 100%; min-width: 0; white-space: normal; text-align: center; }
   .contact-panel { grid-template-columns: minmax(0, 1fr); }
