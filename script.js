@@ -246,6 +246,37 @@ function enableDeferredVideos() {
   });
 }
 
+function initFilmChooser() {
+  const list = document.querySelector("[data-film-choices]");
+  const player = document.querySelector("[data-film-player] video");
+  const title = document.querySelector("[data-film-title]");
+  if (!list || !player || !title) return;
+  const source = player.querySelector("source");
+  videos.forEach(([src, label, poster], index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `film-choice${index === 0 ? " is-active" : ""}`;
+    button.setAttribute("aria-pressed", String(index === 0));
+    button.innerHTML = `<img src="${poster}" alt="" loading="lazy"><span>${label}</span><b aria-hidden="true">${String(index + 1).padStart(2, "0")}</b>`;
+    button.addEventListener("click", () => {
+      if (button.classList.contains("is-active")) return;
+      list.querySelectorAll(".film-choice").forEach((item) => {
+        item.classList.remove("is-active");
+        item.setAttribute("aria-pressed", "false");
+      });
+      button.classList.add("is-active");
+      button.setAttribute("aria-pressed", "true");
+      title.textContent = label;
+      player.poster = poster;
+      source.src = src;
+      source.removeAttribute("data-src");
+      player.load();
+      player.play().catch(() => {});
+    });
+    list.appendChild(button);
+  });
+}
+
 function renderMarquee() {
   const sample = [...shots.slice(0, 22), ...shots.slice(0, 22)];
   sample.forEach(([src, label], index) => {
@@ -286,6 +317,7 @@ window.addEventListener("scroll", () => {
 });
 
 renderMarquee();
+initFilmChooser();
 enableDeferredVideos();
 enablePhotoSwipe();
 animateHero();

@@ -101,20 +101,34 @@
         <button class="gallery-tab" type="button" role="tab" id="art-tab" aria-selected="false" aria-controls="gallery-grid" data-gallery-tab="art">Art <span>أعمال فنية</span></button>
       </div>
       <div class="gallery-grid" id="gallery-grid" role="tabpanel" aria-labelledby="wedding-tab" data-story></div>
+      <p class="gallery-endnote">اختار صورة لمشاهدتها بالحجم الكامل</p>
+    </section>
+
+    <section class="films-section" id="films" aria-labelledby="films-title">
+      <div class="films-heading">
+        <p class="eyebrow dark">الصورة المتحركة</p>
+        <h2 id="films-title">حكايات من<br><em>خلف الكادر.</em></h2>
+        <p>أفلام قصيرة من جلسات التصوير، والحياة في قنا.</p>
+      </div>
+      <div class="films-layout">
+        <div class="film-player" data-film-player>
+          <video controls preload="none" poster="videos-thumbnails/behind-scenes.jpg" aria-label="فيديو خلف الكادر">
+            <source data-src="فيديوهات/كواليس.mp4" type="video/mp4">
+          </video>
+          <div class="film-player-caption"><span>يعرض الآن</span><h3 data-film-title>خلف الكادر</h3></div>
+        </div>
+        <div class="film-choices" data-film-choices aria-label="اختيار فيلم"></div>
+      </div>
     </section>
 
     <section class="contact" id="contact">
-      <div class="contact-visual" aria-hidden="true">
-        <img src="معدات تصوير نملكها/01-dl-0971353259da.jpg" alt="" loading="lazy" decoding="async">
-        <span>Book</span>
-      </div>
       <div class="contact-main">
-        <p class="eyebrow">تواصل</p>
-        <h2>جاهز نبدأ؟</h2>
-        <p>لجلسة تصوير، تغطية فرح، أو فكرة بصرية خاصة.</p>
+        <p class="eyebrow">لديك حكاية؟</p>
+        <h2>خلّينا<br><em>نحكيها.</em></h2>
+        <p>تصوير فرح، جلسة خاصة، أو فكرة فيلم — ابعتلي ونتكلم.</p>
         <div class="contact-actions">
-          <a class="contact-primary" href="https://wa.me/201068414925" target="_blank" rel="noreferrer">واتساب</a>
-          <a href="tel:+201068414925">اتصال مباشر</a>
+          <a class="contact-primary" href="https://wa.me/201068414925" target="_blank" rel="noreferrer">ابدأ محادثة واتساب <b>↗</b></a>
+          <a href="tel:+201068414925">اتصال مباشر · +20 106 841 4925</a>
         </div>
       </div>
       <div class="contact-panel">
@@ -132,9 +146,15 @@
         </a>
         <a href="https://www.pexels.com/@bakr-magrabi-928159/" target="_blank" rel="noreferrer">
           <span>Pexels</span>
-          <strong>Portfolio</strong>
+          <strong>معرض الصور</strong>
         </a>
       </div>
+      <footer class="site-footer">
+        <a class="footer-mark" href="#home">BM<span>®</span></a>
+        <p>كل صورة بداية حكاية.</p>
+        <a class="back-top" href="#home">العودة للأعلى ↑</a>
+        <small>© <span data-year>2026</span> Bakr Magrabi · قنا، مصر</small>
+      </footer>
     </section>
   </main>
 
