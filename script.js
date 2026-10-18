@@ -4,11 +4,6 @@ const shots = [
   ["سيشن العروسين/04-dl-916a28359525.jpg", "سيشن العروسين"],
   ["سيشن العروسين/05-dl-1a02d6c9cad4.jpg", "سيشن العروسين"],
   ["سيشن العروسين/06-dl-469cd11a907f.jpg", "سيشن العروسين"],
-  ["الآرتايه/01-dl-7b3248ad4aea.jpg", "الآرتايه"],
-  ["الآرتايه/02-dl-1bf95f7ef6fe.jpg", "الآرتايه"],
-  ["الآرتايه/03-dl-664d77c13331.jpg", "الآرتايه"],
-  ["الآرتايه/04-dl-c1fa453acc4a.jpg", "الآرتايه"],
-  ["الآرتايه/05-dl-1d4897e267b5.jpg", "الآرتايه"],
   ["سيشن الفرح/01-dl-72ca59b1f1ea.jpg", "سيشن الفرح"],
   ["سيشن الفرح/02-dl-18f9dce27442.jpg", "سيشن الفرح"],
   ["سيشن الفرح/03-dl-f5da7dcecedd.jpg", "سيشن الفرح"],
@@ -106,7 +101,7 @@ function makeSceneShot(shot) {
   button.className = "gallery-card";
   button.type = "button";
   button.setAttribute("aria-label", `عرض صورة من ${label}`);
-  button.innerHTML = `<img data-src="${src}" alt="${label} - Bakr Magrabi" loading="lazy" decoding="async"><span>${label}</span>`;
+  button.innerHTML = `<img src="${src}" alt="${label} - Bakr Magrabi" loading="lazy" decoding="async"><span>${label}</span>`;
   button.addEventListener("click", () => openLightbox(src, label));
   return button;
 }
@@ -128,7 +123,6 @@ function renderGallery(category = "wedding") {
     tab.setAttribute("aria-selected", String(active));
     tab.tabIndex = active ? 0 : -1;
   });
-  lazyLoadMedia();
 }
 
 function enableGalleryTabs() {
