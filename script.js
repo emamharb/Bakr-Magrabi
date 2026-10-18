@@ -278,18 +278,24 @@ function initFilmChooser() {
   const player = frame?.querySelector("video");
   if (!list || !player || !frame) return;
   const source = player.querySelector("source");
+  const bringPlayerIntoView = () => {
+    if (window.matchMedia("(max-width: 820px)").matches) {
+      frame.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
   videos.forEach(([src, label, poster, orientation], index) => {
     const button = document.createElement("button");
     button.type = "button";
     button.className = `film-choice${index === 0 ? " is-active" : ""}`;
     button.classList.toggle("is-landscape", orientation === "landscape");
     button.setAttribute("aria-pressed", String(index === 0));
-    button.innerHTML = `<img src="${poster}" alt="" loading="lazy"><span>${label}</span>`;
+    button.innerHTML = `<span class="film-choice-poster"><img src="${poster}" alt="" loading="lazy"></span><span class="film-choice-title">${label}</span>`;
     button.addEventListener("click", () => {
       if (button.classList.contains("is-active")) {
         if (source.dataset.src) loadDeferredVideo(player);
         if (player.paused) player.play().catch(() => {});
         else player.pause();
+        bringPlayerIntoView();
         return;
       }
       list.querySelectorAll(".film-choice").forEach((item) => {
@@ -307,6 +313,7 @@ function initFilmChooser() {
       source.removeAttribute("data-src");
       player.load();
       player.play().catch(() => {});
+      bringPlayerIntoView();
     });
     list.appendChild(button);
   });
