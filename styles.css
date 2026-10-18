@@ -1184,9 +1184,13 @@ h2 {
 }
 .video-play-button:hover { background: var(--wine); transform: translate(-50%, -50%) scale(1.06); }
 .video-play-button:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
-.video-play-button svg { width: 30px; height: 30px; fill: currentColor; transform: translateX(2px); }
-.intro-video.is-playing .video-play-button { opacity: 0; pointer-events: none; }
+.video-play-button svg { width: 30px; height: 30px; fill: currentColor; }
+.video-play-button[aria-label="تشغيل الفيديو"] svg { transform: translateX(2px); }
+.intro-video.is-playing .video-play-button { opacity: .48; }
+.intro-video.is-playing .video-play-button:hover,
+.intro-video.is-playing .video-play-button:focus-visible { opacity: 1; }
 .intro-video:not(.is-playing):hover .video-play-button { background: rgba(109,38,54,.9); }
 @media (max-width: 520px) {
   .video-play-button { width: 68px; height: 68px; }
+  .intro-video.is-playing .video-play-button { opacity: .75; }
 }

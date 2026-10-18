@@ -251,14 +251,24 @@ function initCenteredVideoPlay() {
     const video = frame.querySelector("video");
     const button = frame.querySelector("[data-video-play]");
     if (!video || !button) return;
-    const start = () => {
-      loadDeferredVideo(video);
-      video.play().catch(() => button.focus());
+    const setButtonState = (playing) => {
+      frame.classList.toggle("is-playing", playing);
+      button.setAttribute("aria-label", playing ? "إيقاف الفيديو" : "تشغيل الفيديو");
+      button.innerHTML = playing
+        ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z" /></svg>'
+        : '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10-6.5-10-6.5Z" /></svg>';
     };
-    button.addEventListener("click", start);
-    video.addEventListener("play", () => frame.classList.add("is-playing"));
-    video.addEventListener("pause", () => frame.classList.remove("is-playing"));
-    video.addEventListener("ended", () => frame.classList.remove("is-playing"));
+    button.addEventListener("click", () => {
+      if (video.paused || video.ended) {
+        loadDeferredVideo(video);
+        video.play().catch(() => button.focus());
+      } else {
+        video.pause();
+      }
+    });
+    video.addEventListener("play", () => setButtonState(true));
+    video.addEventListener("pause", () => setButtonState(false));
+    video.addEventListener("ended", () => setButtonState(false));
   });
 }
 
