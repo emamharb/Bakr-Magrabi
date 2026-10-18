@@ -221,6 +221,10 @@ h2 {
   margin: 0 auto;
 }
 
+.work {
+  width: min(1600px, calc(100% - 48px));
+}
+
 .contact {
   width: 100%;
 }
@@ -366,8 +370,8 @@ h2 {
 }
 
 .gallery-grid {
-  columns: 4 240px;
-  column-gap: clamp(10px, 1.5vw, 20px);
+  columns: 5 260px;
+  column-gap: clamp(12px, 1.35vw, 22px);
   padding-bottom: 18px;
 }
 
@@ -830,7 +834,8 @@ h2 {
     opacity: 1;
     transform: none;
   }
-  .gallery-grid { columns: 3 200px; }
+  .work { width: calc(100% - 32px); }
+  .gallery-grid { columns: 4 190px; }
   .story-scene:nth-child(even) .scene-copy { order: 0; }
   .scene-copy {
     position: relative;
@@ -904,7 +909,8 @@ h2 {
   .intro-copy h2 { font-size: clamp(2.4rem, 13vw, 4.2rem); }
   .intro-video video { max-height: 430px; }
   .gallery { columns: 1; }
-  .gallery-grid { columns: 2; column-gap: 8px; }
+  .work { width: calc(100% - 24px); }
+  .gallery-grid { columns: 2; column-gap: 10px; }
   .gallery-card { margin-bottom: 8px; }
   .shot img { min-height: 250px; }
   .scene-collage {
