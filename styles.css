@@ -1110,6 +1110,7 @@ h2 {
   .film-choices { order: 1; display: flex; gap: 10px; margin: 0 -16px; padding: 4px 16px 12px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: thin; }
   .film-choice, .film-choice.is-landscape { flex: 0 0 140px; display: flex; flex-direction: column; align-items: stretch; gap: 9px; min-height: 0; padding: 8px; border: 1px solid rgba(20,20,20,.12); border-radius: 4px; background: rgba(255,255,255,.38); text-align: right; scroll-snap-align: start; }
   .film-choice-poster, .film-choice.is-landscape .film-choice-poster { width: 100%; height: 148px; }
+  .film-choice.is-landscape .film-choice-poster { height: 92px; }
   .film-choice-title { min-height: 1.5em; }
   .film-player, .film-player.is-landscape { order: 2; align-self: center; width: min(100%, 380px); }
   .contact { grid-template-areas: "main" "panel" "footer"; gap: 32px; padding: 54px 20px 0; }

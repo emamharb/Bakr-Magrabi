@@ -53,10 +53,10 @@ const shots = [
 ];
 
 const videos = [
-  ["فيديوهات/كواليس.mp4", "كواليس التصوير", "videos-thumbnails/behind-scenes.jpg", "portrait"],
-  ["فيديوهات/فيديو بمؤثر الثلج.mp4", "تأثير الثلج", "videos-thumbnails/snow-effect.jpg", "portrait"],
-  ["فيديوهات/٣ مشاكل في التصوير بالليل..mp4", "التصوير الليلي", "videos-thumbnails/night-shooting.jpg", "portrait"],
-  ["فيديوهات/المرماح أحد أبرز الموروثات الشعبية في صعيد مصر، يرتبط بالخيل والفروسية ويُقام في عدد من المناسبات والموالد..mp4", "المرماح", "videos-thumbnails/horse-heritage.jpg", "landscape"]
+  ["فيديوهات/المشكلة مش في الكاميرا…المشكلة إنك غالبًا قافل الـ Grid (الشبكة)الخط.mp4", "خطوط الشبكة", "videos-thumbnails/grid-lines.jpg", "portrait"],
+  ["فيديوهات/الليل بريء…٣ مشاكل في التصوير بالليل. اعرفهم علشان تصور في العيد بالليل بشكل أحسن. وقولي- إيه أك.mp4", "التصوير الليلي", "videos-thumbnails/night-tips.jpg", "portrait"],
+  ["فيديوهات/__هل أنوبيس من فعلها ؟! مستوحي من مسلسل true detective_.mp4", "حكاية أنوبيس", "videos-thumbnails/anubis-story.jpg", "landscape"],
+  ["فيديوهات/المشكلة مش في الكاميرا ، الجزء الاول.mp4", "المشكلة مش في الكاميرا", "videos-thumbnails/camera-problem.jpg", "portrait"]
 ];
 
 const sceneTitles = [
