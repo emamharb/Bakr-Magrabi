@@ -1,9 +1,4 @@
 const shots = [
-  ["الآرتايه/01-dl-7b3248ad4aea.jpg", "الآرتايه"],
-  ["الآرتايه/02-dl-1bf95f7ef6fe.jpg", "الآرتايه"],
-  ["الآرتايه/03-dl-664d77c13331.jpg", "الآرتايه"],
-  ["الآرتايه/04-dl-c1fa453acc4a.jpg", "الآرتايه"],
-  ["الآرتايه/05-dl-1d4897e267b5.jpg", "الآرتايه"],
   ["سيشن العروسين/02-dl-bf57a06ce420.jpg", "سيشن العروسين"],
   ["سيشن العروسين/03-dl-e092ab720128.jpg", "سيشن العروسين"],
   ["سيشن العروسين/04-dl-916a28359525.jpg", "سيشن العروسين"],
@@ -43,7 +38,23 @@ const shots = [
   ["فرح/02-dl-42c55782ad79.jpg", "فرح"],
   ["فرح/03-dl-a69a34628872.jpg", "فرح"],
   ["فرح/04-dl-6b19eb75ab98.jpg", "فرح"],
-  ["فرح/05-dl-d2eee10a2bfd.jpg", "فرح"]
+  ["فرح/05-dl-d2eee10a2bfd.jpg", "فرح"],
+  ["الآرتايه/01-dl-7b3248ad4aea.jpg", "الآرتايه"],
+  ["الآرتايه/02-dl-1bf95f7ef6fe.jpg", "الآرتايه"],
+  ["الآرتايه/03-dl-664d77c13331.jpg", "الآرتايه"],
+  ["الآرتايه/04-dl-c1fa453acc4a.jpg", "الآرتايه"],
+  ["الآرتايه/05-dl-1d4897e267b5.jpg", "الآرتايه"],
+  ["سيشن/02-dl-15756191b4ed.jpg", "سيشن"],
+  ["سيشن/03-dl-b0de3fb0b58d.jpg", "سيشن"],
+  ["سيشن/04-dl-1c64612353e1.jpg", "سيشن"],
+  ["سيشن/05-dl-e69b1335ff86.jpg", "سيشن"],
+  ["سيشن/06-dl-35f295d9b70c.jpg", "سيشن"],
+  ["سيشن/صورتى.jpg", "بورتريه"],
+  ["شوارع بسيطه وهادئة/01-dl-a1d386b096d3.jpg", "شوارع بسيطة وهادئة"],
+  ["شوارع بسيطه وهادئة/02-dl-eab15f6cd5b3.jpg", "شوارع بسيطة وهادئة"],
+  ["شوارع بسيطه وهادئة/03-dl-2430d75b9da7.jpg", "شوارع بسيطة وهادئة"],
+  ["شوارع بسيطه وهادئة/04-dl-f41b15ceda97.jpg", "شوارع بسيطة وهادئة"],
+  ["شوارع بسيطه وهادئة/05-dl-a76ff8cf501f.jpg", "شوارع بسيطة وهادئة"]
 ];
 
 const videos = [
@@ -75,6 +86,7 @@ const sceneKickers = [
 ];
 
 const story = document.querySelector("[data-story]");
+const galleryTabs = [...document.querySelectorAll("[data-gallery-tab]")];
 const marquee = document.querySelector("[data-marquee]");
 const lightbox = document.querySelector("[data-lightbox]");
 const lightboxImage = lightbox.querySelector("img");
@@ -91,46 +103,46 @@ function openLightbox(src, label) {
 function makeSceneShot(shot) {
   const [src, label] = shot;
   const button = document.createElement("button");
-  button.className = "scene-shot";
+  button.className = "gallery-card";
   button.type = "button";
-  button.innerHTML = `<img data-src="${src}" alt="لقطة من أعمال Bakr Magrabi" loading="lazy" decoding="async">`;
+  button.setAttribute("aria-label", `عرض صورة من ${label}`);
+  button.innerHTML = `<img data-src="${src}" alt="${label} - Bakr Magrabi" loading="lazy" decoding="async"><span>${label}</span>`;
   button.addEventListener("click", () => openLightbox(src, label));
   return button;
 }
 
-function renderStory() {
-  story.innerHTML = "";
-  const groups = [
-    { id: "art", title: "Art", kicker: "Art Photography", shots: [
-      ...shots.filter(([, label]) => label === "بورتريه" || label === "شوارع بسيطة وهادئة"),
-      ...["01-dl-de4ece85403b.jpg", "02-dl-ef088c1f8ba2.jpg", "03-dl-62805e5df29b.jpg", "04-dl-89a807048c8d.jpg", "05-dl-ef796e49ab93.jpg"].map((name) => [`سيشن سينمائي لصديقي/${name}`, "سيشن سينمائي"])
-    ] },
-    { id: "wedding", title: "Wedding", kicker: "Wedding Photography", shots: shots.filter(([, label]) => /عروسين|فرح|الآرتايه/.test(label)) }
-  ];
+const artShots = [
+  ...shots.filter(([, label]) => label === "بورتريه" || label === "شوارع بسيطة وهادئة"),
+  ...["01-dl-de4ece85403b.jpg", "02-dl-ef088c1f8ba2.jpg", "03-dl-62805e5df29b.jpg", "04-dl-89a807048c8d.jpg", "05-dl-ef796e49ab93.jpg"].map((name) => [`سيشن سينمائي لصديقي/${name}`, "سيشن سينمائي"])
+];
+const weddingShots = shots.filter(([src, label]) => /عروسين|فرح|الآرتايه/.test(label) || (src.startsWith("سيشن/") && label === "سيشن"));
 
-  let sceneIndex = 0;
-  groups.forEach((group) => {
-    const heading = document.createElement("div");
-    heading.className = "gallery-section-title";
-    heading.id = `${group.id}-gallery`;
-    heading.innerHTML = `<p class="eyebrow dark">${group.kicker}</p><h2>${group.title}</h2>`;
-    story.appendChild(heading);
-
-    for (let index = 0; index < group.shots.length; index += 6) {
-    const chunk = group.shots.slice(index, index + 6);
-    const title = sceneTitles[sceneIndex % sceneTitles.length];
-    const kicker = sceneKickers[sceneIndex % sceneKickers.length];
-    const scene = document.createElement("section");
-    scene.className = "story-scene";
-    scene.innerHTML = `<div class="scene-copy"><span>${kicker}</span><h3>${title}</h3></div><div class="scene-collage"></div>`;
-    const collage = scene.querySelector(".scene-collage");
-    chunk.forEach((shot) => collage.appendChild(makeSceneShot(shot)));
-    story.appendChild(scene);
-
-    if (group.id !== "art" && sceneIndex < videos.length) story.appendChild(makeVideoScene(videos[sceneIndex], sceneIndex));
-    sceneIndex += 1;
-    }
+function renderGallery(category = "wedding") {
+  const isWedding = category === "wedding";
+  const selected = isWedding ? weddingShots : artShots;
+  story.replaceChildren(...selected.map(makeSceneShot));
+  story.setAttribute("aria-labelledby", `${category}-tab`);
+  galleryTabs.forEach((tab) => {
+    const active = tab.dataset.galleryTab === category;
+    tab.classList.toggle("is-active", active);
+    tab.setAttribute("aria-selected", String(active));
+    tab.tabIndex = active ? 0 : -1;
   });
+  lazyLoadMedia();
+}
+
+function enableGalleryTabs() {
+  galleryTabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => renderGallery(tab.dataset.galleryTab));
+    tab.addEventListener("keydown", (event) => {
+      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+      event.preventDefault();
+      const nextIndex = event.key === "Home" ? 0 : event.key === "End" ? galleryTabs.length - 1 : (index + (event.key === "ArrowRight" ? 1 : -1) + galleryTabs.length) % galleryTabs.length;
+      galleryTabs[nextIndex].focus();
+      renderGallery(galleryTabs[nextIndex].dataset.galleryTab);
+    });
+  });
+  renderGallery("wedding");
 }
 
 function makeVideoScene(video, index) {
@@ -203,7 +215,7 @@ function renderMarquee() {
 }
 
 function startBelowFoldStory() {
-  renderStory();
+  enableGalleryTabs();
   enableDeferredVideos();
   watchStoryMotion();
   lazyLoadMedia();
