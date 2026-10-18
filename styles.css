@@ -835,7 +835,7 @@ h2 {
     transform: none;
   }
   .work { width: calc(100% - 32px); }
-  .gallery-grid { columns: 3 220px; }
+  .gallery-grid { columns: 2; column-gap: 10px; }
   .story-scene:nth-child(even) .scene-copy { order: 0; }
   .scene-copy {
     position: relative;
@@ -910,7 +910,7 @@ h2 {
   .intro-video video { max-height: 430px; }
   .gallery { columns: 1; }
   .work { width: calc(100% - 24px); }
-  .gallery-grid { columns: 2; column-gap: 10px; }
+  .gallery-grid { columns: 2; column-gap: 8px; }
   .gallery-card { margin-bottom: 8px; }
   .shot img { min-height: 250px; }
   .scene-collage {
