@@ -1192,16 +1192,14 @@ h2 {
 .video-play-button svg { width: 30px; height: 30px; fill: currentColor; }
 .video-play-button[aria-label="تشغيل الفيديو"] svg { transform: translateX(2px); }
 .intro-video.is-playing .video-play-button,
-.film-player.is-playing .video-play-button { opacity: .48; }
-.intro-video.is-playing .video-play-button:hover,
+.film-player.is-playing .video-play-button { opacity: 0; }
+.intro-video.is-playing.is-controls-visible .video-play-button,
+.film-player.is-playing.is-controls-visible .video-play-button,
 .intro-video.is-playing .video-play-button:focus-visible,
-.film-player.is-playing .video-play-button:hover,
-.film-player.is-playing .video-play-button:focus-visible { opacity: 1; }
+.film-player.is-playing .video-play-button:focus-visible { opacity: .85; }
 .intro-video:not(.is-playing):hover .video-play-button { background: rgba(109,38,54,.9); }
 .film-player:not(.is-playing):hover .video-play-button { background: rgba(109,38,54,.9); }
 @media (max-width: 520px) {
   .video-play-button { width: 68px; height: 68px; }
-  .intro-video.is-playing .video-play-button,
-  .film-player.is-playing .video-play-button { opacity: .75; }
   .gallery-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
 }

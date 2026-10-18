@@ -244,8 +244,17 @@ function initCenteredVideoPlay() {
     const video = frame.querySelector("video");
     const button = frame.querySelector("[data-video-play]");
     if (!video || !button) return;
+    let hideIndicatorTimer;
+    const showIndicatorBriefly = () => {
+      frame.classList.add("is-controls-visible");
+      window.clearTimeout(hideIndicatorTimer);
+      hideIndicatorTimer = window.setTimeout(() => frame.classList.remove("is-controls-visible"), 1400);
+    };
     const setButtonState = (playing) => {
       frame.classList.toggle("is-playing", playing);
+      frame.classList.remove("is-controls-visible");
+      window.clearTimeout(hideIndicatorTimer);
+      if (playing) showIndicatorBriefly();
       button.setAttribute("aria-label", playing ? "إيقاف الفيديو" : "تشغيل الفيديو");
       button.innerHTML = playing
         ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z" /></svg>'
@@ -262,6 +271,9 @@ function initCenteredVideoPlay() {
     video.addEventListener("play", () => setButtonState(true));
     video.addEventListener("pause", () => setButtonState(false));
     video.addEventListener("ended", () => setButtonState(false));
+    frame.addEventListener("pointermove", () => {
+      if (frame.classList.contains("is-playing")) showIndicatorBriefly();
+    });
   });
 }
 
